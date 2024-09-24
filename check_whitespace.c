@@ -61,5 +61,10 @@ int is_clean(char const *str) {
   // greater than the second.
   int result = strcmp(str, cleaned);
 
+// Free the memory allocated by strip if it is not the empty string
+  if (cleaned != str && cleaned[0] != '\0') {
+    free((void*)cleaned);
+  }
+
   return result == 0;
 }
